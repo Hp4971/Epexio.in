@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a Quote | Epexio Techno Solutions</title>
+    <meta name="description" content="Get a fixed-price quote from Epexio Techno Solutions." />
+    <link rel="icon" type="image/png" href="Image/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+      }
+      .form-group input:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: #04d9ff;
+      }
+      .quote-container {
+        max-width: 600px;
+        margin: 100px auto 40px auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" style="position: relative; background: rgba(10, 10, 10, 0.95);">
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+            <img src="Image/logo.png" alt="Epexio Logo" style="height: 50px; width: auto" />
+            <span class="logo-text">Epexio<span class="accent">.</span><span class="logo-text">in</span></span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#leadership">Leadership</a></li>
+          <li><a href="index.html#contact" class="btn-primary">Start Project</a></li>
+        </ul>
+        <div class="hamburger">☰</div>
+      </div>
+    </nav>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="quote-container">
+          <h2 style="text-align: center; margin-bottom: 10px; color: #fff;">Get a Quote</h2>
+          <p style="text-align: center; margin-bottom: 30px; color: #aaa;">Tell us about your project and we will get back to you shortly.</p>
+          <form id="quoteForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="Your Email Address" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" />
+            </div>
+            <div class="form-group">
+              <label for="project_details">Project Details</label>
+              <textarea id="project_details" name="message" rows="5" required placeholder="Describe your project..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 15px; font-size: 16px; border-radius: 8px;">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div class="logo">
+            <img src="Image/logo.png" alt="Epexio Logo" style="height: 50px; width: auto" />
+          </div>
+          <h3><span class="neon-text">Epexio Techno Solutions</span></h3>
+          <p>
+            Empowering MSMEs and startups with high-calibre, custom technology
+            solutions.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Find Us</h4>
+          <h3>📍Headquarters</h3>
+          <p>
+            B-TF-7, Block - B, Third Floor, Signet Plaza<br />
+            Kunal Char Rasta, Samta - Gotri Road<br />
+            Gotri, Vadodara, Gujarat - 390021, India
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:office@epexio.in" class="contact-link">office@epexio.in</a>
+          <a href="https://www.linkedin.com/company/epexio-techno-solutions/">LinkedIn</a>
+          <a href="https://www.youtube.com/@EpexioTechnoSolution">Youtube</a>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Epexio Techno Solutions. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+    (function() {
+        emailjs.init({
+            publicKey: "4YFmxzWEK-QClbXgA",
+        });
+    })();
+
+    document.getElementById("quoteForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_nu00ymf",
+            "template_0sk4sd4",
+            this
+        )
+        .then(function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("Quote request sent successfully!");
+            document.getElementById("quoteForm").reset();
+        })
+        .catch(function(error) {
+            console.log("FAILED...", error);
+            alert("Failed to send request.");
+        });
+    });
+    </script>
+  </body>
+</html>

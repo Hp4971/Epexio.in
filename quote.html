@@ -110,6 +110,13 @@
           </p>
         </div>
         <div class="footer-col">
+          <h4>Legal & Policies</h4>
+          <a href="policies.html#terms">Terms & Conditions</a>
+          <a href="policies.html#privacy">Privacy Policy</a>
+          <a href="policies.html#refund">Refund & Cancellation</a>
+          <a href="policies.html#delivery">Service Delivery Policy</a>
+        </div>
+        <div class="footer-col">
           <h4>Connect</h4>
           <a href="mailto:office@epexio.in" class="contact-link">office@epexio.in</a>
           <a href="https://www.linkedin.com/company/epexio-techno-solutions/">LinkedIn</a>
@@ -147,6 +154,21 @@
             console.log("FAILED...", error);
             alert("Failed to send request.");
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+          });
+        });
+      }
     });
     </script>
   </body>

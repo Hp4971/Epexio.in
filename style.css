@@ -498,6 +498,18 @@ footer {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 20px 0;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.active {
+    display: flex;
   }
   .hamburger {
     display: block;
